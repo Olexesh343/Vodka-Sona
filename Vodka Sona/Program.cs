@@ -73,7 +73,7 @@ namespace VodkaSona
 
             var fleeMenu = new Menu("Flee", "vodka.sona.flee");
             {
-                misc.AddItem(new MenuItem("vodka.sona.flee.fleekey", "FLEEEEEEEEEE! ").SetValue(new KeyBind('A', KeyBindType.Press)));
+                fleeMenu.AddItem(new MenuItem("vodka.sona.flee.fleekey", "FLEEEEEEEEEE! ").SetValue(new KeyBind('A', KeyBindType.Press)));
                 fleeMenu.AddItem(new MenuItem("vodka.sona.flee.usew", "Use W").SetValue(true));
                 fleeMenu.AddItem(new MenuItem("vodka.sona.flee.usee", "Use E").SetValue(true));
 
