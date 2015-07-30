@@ -73,9 +73,9 @@ namespace VodkaSona
 
             var fleeMenu = new Menu("Flee", "vodka.sona.flee");
             {
-                misc.AddItem(new MenuItem("vodka.sona.misc.flee", "FLEEEEEEEEEE! ").SetValue(new KeyBind('A', KeyBindType.Press)));
-                fleeMenu.AddItem(new MenuItem("vodka.sona.combo.usew", "Use W").SetValue(true));
-                fleeMenu.AddItem(new MenuItem("vodka.sona.combo.usee", "Use E").SetValue(true));
+                misc.AddItem(new MenuItem("vodka.sona.flee.fleekey", "FLEEEEEEEEEE! ").SetValue(new KeyBind('A', KeyBindType.Press)));
+                fleeMenu.AddItem(new MenuItem("vodka.sona.flee.usew", "Use W").SetValue(true));
+                fleeMenu.AddItem(new MenuItem("vodka.sona.flee.usee", "Use E").SetValue(true));
 
             }
             _menu.AddSubMenu(fleeMenu);
@@ -156,10 +156,16 @@ namespace VodkaSona
         private static void Game_OnUpdate(EventArgs args)
         {
             if (_menu.Item("vodka.sona.misc.panic").GetValue<KeyBind>().Active)
+            {
                 R.Cast(R.GetPrediction(TargetSelector.GetTarget(R.Range, TargetSelector.DamageType.Magical)).CastPosition, _menu.Item("vodka.sona.misc.packets").GetValue<bool>());
+            }
 
-            if (_menu.Item("vodka.sona.misc.flee").GetValue<KeyBind>().Active)
-                E.Cast();
+            if (_menu.Item("vodka.sona.misc.fleekey").GetValue<KeyBind>().Active)
+            {
+                if (_menu.Item("vodka.sona.flee.useW").GetValue<bool>()) W.Cast();
+                if (_menu.Item("vodka.sona.flee.useE").GetValue<bool>()) E.Cast();
+            }
+                
 
             switch (_orbwalker.ActiveMode)
             {
