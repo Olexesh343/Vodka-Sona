@@ -46,7 +46,11 @@ namespace VodkaSona
 
             _menu.AddSubMenu(orbwalkerMenu);
 
-            TargetSelector.AddToMenu(_menu);
+            Menu targetSelector = new Menu("Target Selector","vodka.sona.ts");
+            TargetSelector.AddToMenu(targetSelector);
+            _menu.AddSubMenu(targetSelector);
+
+
 
             var comboMenu = new Menu("Combo", "vodka.sona.combo");
             {
@@ -79,9 +83,9 @@ namespace VodkaSona
             {
                 misc.AddItem(new MenuItem("vodka.sona.misc.healpro", "heal mates with x % health").SetValue(new Slider(50, 1)));
                 misc.AddItem(new MenuItem("vodka.sona.misc.healmate", "heal only with x mates around").SetValue(new Slider(1, 0, 4)));
-                misc.AddItem(new MenuItem("vodka.sona.misc.panic", "Panic ult! ").SetValue(new KeyBind('A', KeyBindType.Press)));
+                misc.AddItem(new MenuItem("vodka.sona.misc.panic", "panic ult! ").SetValue(new KeyBind('A', KeyBindType.Press)));
                 misc.AddItem(new MenuItem("vodka.sona.misc.packets", "use packets").SetValue(true));
-                misc.AddItem(new MenuItem("vodka.sona.misc.exhaust", "Use exhaust").SetValue(true));
+                misc.AddItem(new MenuItem("vodka.sona.misc.exhaust", "use exhaust").SetValue(true));
             }
             _menu.AddSubMenu(misc);
 
