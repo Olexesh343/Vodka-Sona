@@ -83,13 +83,14 @@ namespace VodkaSona
                 misc.AddItem(new MenuItem("vodka.sona.misc.packets", "use packets").SetValue(true));
                 misc.AddItem(new MenuItem("vodka.sona.misc.exhaust", "Use exhaust").SetValue(true));
             }
-            _menu.AddSubMenu(harrassMenu);
+            _menu.AddSubMenu(misc);
 
             var drawingMenu = new Menu("Drawing", "vodka.sona.drawing");
             drawingMenu.AddItem(new MenuItem("DrawQ", "Draw Q range").SetValue(new Circle(true, Color.Aqua, Q.Range)));
             drawingMenu.AddItem(new MenuItem("DrawW", "Draw W range").SetValue(new Circle(true, Color.SpringGreen, W.Range)));
             drawingMenu.AddItem(new MenuItem("DrawE", "Draw E range").SetValue(new Circle(true, Color.SlateBlue, E.Range)));
             drawingMenu.AddItem(new MenuItem("DrawR", "Draw R range").SetValue(new Circle(true, Color.Red, R.Range)));
+            _menu.AddSubMenu(drawingMenu);
             _menu.AddToMainMenu();
 
             Interrupter.OnPossibleToInterrupt += Interrupter_OnPossibleToInterrupt;
