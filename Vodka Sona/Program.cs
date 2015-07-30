@@ -160,10 +160,10 @@ namespace VodkaSona
                 R.Cast(R.GetPrediction(TargetSelector.GetTarget(R.Range, TargetSelector.DamageType.Magical)).CastPosition, _menu.Item("vodka.sona.misc.packets").GetValue<bool>());
             }
 
-            if (_menu.Item("vodka.sona.misc.fleekey").GetValue<KeyBind>().Active)
+            if (_menu.Item("vodka.sona.flee.fleekey").GetValue<KeyBind>().Active)
             {
-                if (_menu.Item("vodka.sona.flee.useW").GetValue<bool>()) W.Cast();
-                if (_menu.Item("vodka.sona.flee.useE").GetValue<bool>()) E.Cast();
+                if (_menu.Item("vodka.sona.flee.usew").GetValue<bool>()) W.Cast();
+                if (_menu.Item("vodka.sona.flee.usee").GetValue<bool>()) E.Cast();
             }
                 
 
