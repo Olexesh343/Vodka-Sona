@@ -190,7 +190,7 @@ namespace VodkaSona
         private static void Combo()
         {
             bool vQ = Q.IsReady() && _menu.Item("vodka.sona.combo.useq").GetValue<bool>();
-            bool vW = W.IsReady() && _menu.Item("vodka.sona.combo.useW").GetValue<bool>();
+            bool vW = W.IsReady() && _menu.Item("vodka.sona.combo.usew").GetValue<bool>();
             bool vE = E.IsReady() && _menu.Item("vodka.sona.combo.usee").GetValue<bool>();
             bool vR = R.IsReady() && _menu.Item("vodka.sona.combo.user").GetValue<bool>();
 
@@ -201,14 +201,15 @@ namespace VodkaSona
             {
                 R.CastIfWillHit(tsR, _menu.Item("vodka.sona.combo.presR").GetValue<Slider>().Value, _menu.Item("vodka.sona.misc.packets").GetValue<bool>());
             }
+
+            if (vQ && tsQ != null && Vector3.Distance(Player.Position, tsQ.Position) <= Q.Range)
+            {
+                Q.Cast();
+            }
+
             if (vE)
             {
                 UseESmart(TargetSelector.GetTarget(1700, TargetSelector.DamageType.Magical));
-            }
-
-            if (Q.IsReady() && _menu.Item("vodka.sona.combo.useq").GetValue<bool>() && Vector3.Distance(Player.Position, tsQ.Position) < Q.Range)
-            {
-                Q.Cast();
             }
 
             if (vW)
